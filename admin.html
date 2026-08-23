@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Governance | Swasthya Saathi</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#217e74" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <p class="eyebrow">Health Authority Workspace</p>
+          <h1>Swasthya Saathi Content Review</h1>
+          <p>
+            Review status, source coverage, and disease awareness entries before they are used by the chatbot.
+          </p>
+        </div>
+        <div class="chat-actions">
+          <a class="admin-link compact" href="./index.html">Open App</a>
+          <a class="admin-link" href="./deployment.html">Deployment</a>
+        </div>
+      </header>
+
+      <section class="admin-metrics" aria-label="Content governance metrics">
+        <article>
+          <span id="metricEntries">0</span>
+          <p>reviewed topics</p>
+        </article>
+        <article>
+          <span id="metricSources">0</span>
+          <p>verified sources</p>
+        </article>
+        <article>
+          <span id="metricPending">0</span>
+          <p>pending updates</p>
+        </article>
+      </section>
+
+      <section class="review-panel" aria-label="Disease content review queue">
+        <div class="section-heading">
+          <h2>Review Queue</h2>
+          <button id="refreshContent" type="button">Refresh</button>
+        </div>
+        <div class="review-table" id="reviewTable"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/admin.js"></script>
+    <script type="module" src="./src/deployment.js"></script>
+  </body>
+</html>

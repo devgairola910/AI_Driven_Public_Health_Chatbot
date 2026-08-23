@@ -1,0 +1,18 @@
+{
+  "name": "Swasthya Saathi",
+  "short_name": "Swasthya",
+  "description": "AI-powered public health awareness assistant for simple, safe health information.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fbfa",
+  "theme_color": "#176f65",
+  "icons": [
+    {
+      "src": "/src/assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

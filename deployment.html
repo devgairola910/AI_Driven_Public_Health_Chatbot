@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deployment Readiness | Swasthya Saathi</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#217e74" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <p class="eyebrow">Admin Dashboard</p>
+          <h1>Deployment and Integration Readiness</h1>
+          <p>
+            Production checklist, channel plan, official resource registry, and live service status for the public health chatbot.
+          </p>
+        </div>
+        <div class="chat-actions">
+          <a class="admin-link compact" href="./index.html">Open App</a>
+          <a class="admin-link compact" href="./analytics.html">Signals</a>
+          <button class="admin-link button-link" id="refreshReadiness" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <section class="admin-metrics" aria-label="Deployment readiness metrics">
+        <article>
+          <span id="metricPhase">4</span>
+          <p>active phase</p>
+        </article>
+        <article>
+          <span id="metricApi">Checking</span>
+          <p>API health</p>
+        </article>
+        <article>
+          <span id="metricMode">Local</span>
+          <p>deployment mode</p>
+        </article>
+      </section>
+
+      <section class="intelligence-grid">
+        <article class="review-panel">
+          <div class="section-heading">
+            <h2>Production Checklist</h2>
+          </div>
+          <div class="checklist-list" id="readinessChecklist"></div>
+        </article>
+
+        <article class="review-panel">
+          <div class="section-heading">
+            <h2>Messaging Channels</h2>
+          </div>
+          <div class="channel-list" id="channelList"></div>
+        </article>
+      </section>
+
+      <section class="review-panel">
+        <div class="section-heading">
+          <h2>Official Resource Registry</h2>
+        </div>
+        <div class="integration-list" id="resourceList"></div>
+      </section>
+
+      <section class="privacy-panel">
+        <h2>Incident Response</h2>
+        <p id="incidentSummary">
+          Use the health endpoint for uptime checks, preserve no raw health questions in logs, and roll back to the last approved content bundle if response quality or source integrity is questioned.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="./src/readiness.js"></script>
+    <script type="module" src="./src/deployment.js"></script>
+  </body>
+</html>

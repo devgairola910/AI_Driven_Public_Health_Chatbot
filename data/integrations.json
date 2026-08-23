@@ -1,0 +1,87 @@
+{
+  "officialResources": [
+    {
+      "name": "Ministry of Health and Family Welfare",
+      "url": "https://www.mohfw.gov.in/",
+      "use": "Official public health advisories and programme links"
+    },
+    {
+      "name": "National Centre for Vector Borne Diseases Control",
+      "url": "https://ncvbdc.mohfw.gov.in/",
+      "use": "Vector-borne disease awareness and programme information"
+    },
+    {
+      "name": "National TB Elimination Programme",
+      "url": "https://tbcindia.mohfw.gov.in/",
+      "use": "Tuberculosis awareness, screening, and programme information"
+    },
+    {
+      "name": "WHO India",
+      "url": "https://www.who.int/india",
+      "use": "Global and India-facing public health reference guidance"
+    }
+  ],
+  "messagingChannels": [
+    {
+      "name": "SMS Awareness Prompts",
+      "status": "planned",
+      "use": "Send short prevention reminders and campaign links for low-bandwidth users.",
+      "guardrail": "Approved templates only"
+    },
+    {
+      "name": "WhatsApp-style Broadcast",
+      "status": "planned",
+      "use": "Share seasonal advisories and warning-sign explainers through public health broadcast lists.",
+      "guardrail": "No diagnosis claims"
+    },
+    {
+      "name": "Community Health Worker Tablet Mode",
+      "status": "ready for pilot",
+      "use": "Run the installable shell during community awareness sessions, with offline disease cards after first load.",
+      "guardrail": "Reviewed content bundle"
+    },
+    {
+      "name": "District Dashboard Deployment",
+      "status": "ready for pilot",
+      "use": "Expose aggregated topic and region signals for public health planning.",
+      "guardrail": "Aggregate counts only"
+    }
+  ],
+  "deploymentReadiness": [
+    {
+      "name": "Container packaging",
+      "ready": true,
+      "detail": "Dockerfile packages the static app, local API, content registry, and documentation."
+    },
+    {
+      "name": "Health monitoring",
+      "ready": true,
+      "detail": "/api/health returns phase, mode, timestamp, and readiness checks for uptime monitors."
+    },
+    {
+      "name": "Offline and low-bandwidth support",
+      "ready": true,
+      "detail": "Manifest and service worker cache the app shell, reviewed content, and offline page."
+    },
+    {
+      "name": "Privacy-preserving analytics",
+      "ready": true,
+      "detail": "Analytics store aggregate topic, category, region, and urgency counts without raw messages."
+    },
+    {
+      "name": "Production access control",
+      "ready": false,
+      "detail": "Admin and analytics pages still need role-based access control before public deployment."
+    },
+    {
+      "name": "Persistent analytics store",
+      "ready": false,
+      "detail": "In-memory metrics should be replaced with a privacy-reviewed database for production."
+    }
+  ],
+  "incidentResponse": {
+    "summary": "Monitor /api/health, exclude raw health questions from logs, review content-source changes, and roll back to the last approved content bundle if safety or source integrity is questioned.",
+    "rollback": "Redeploy the previous container image and approved data bundle.",
+    "severity": "Escalate immediately if urgent-care warnings fail, official resource links are compromised, or admin content approval is bypassed."
+  }
+}

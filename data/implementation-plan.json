@@ -1,0 +1,52 @@
+{
+  "project": "AI-Driven Public Health Chatbot for Disease Awareness",
+  "phases": [
+    {
+      "id": 1,
+      "name": "Awareness Prototype",
+      "status": "delivered",
+      "deliverables": [
+        "Static chatbot UI",
+        "Disease awareness cards",
+        "Rule-guided safety responses",
+        "Phase roadmap documentation"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "AI Assistant and Governance",
+      "status": "delivered",
+      "deliverables": [
+        "Local chat API",
+        "Retrieval-style matching over verified health content",
+        "Admin content review",
+        "Multilingual templates",
+        "Source-labeled answers"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Public Health Intelligence",
+      "status": "delivered",
+      "deliverables": [
+        "Anonymized analytics",
+        "Regional query trends",
+        "Campaign insights",
+        "Privacy controls",
+        "Public health signal dashboard"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Deployment and Integrations",
+      "status": "current",
+      "deliverables": [
+        "Container deployment packaging",
+        "Messaging-channel readiness plan",
+        "Official resource links",
+        "Monitoring and security review",
+        "Offline and low-bandwidth installable shell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swasthya Saathi | AI Health Awareness Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#176f65" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="product-shell">
+      <aside class="side-nav" aria-label="Primary navigation">
+        <a class="brand-lockup" href="#home" data-route="home" aria-label="Swasthya Saathi home">
+          <span class="logo-mark" aria-hidden="true">
+            <span class="logo-cross">+</span>
+            <span class="logo-bubble"></span>
+          </span>
+          <span>
+            <strong>Swasthya Saathi</strong>
+            <small>Your AI Health Awareness Assistant</small>
+          </span>
+        </a>
+
+        <nav class="nav-list" id="desktopNav" aria-label="App sections"></nav>
+
+        <section class="side-card" id="sideCard">
+          <p class="eyebrow" id="sideCardEyebrow">For Families</p>
+          <h2 id="sideCardTitle">Reliable health information, simply explained.</h2>
+          <p id="sideCardText">Use Swasthya Saathi for awareness, prevention, warning signs, and care-seeking prompts.</p>
+        </section>
+
+        <a class="authority-link" id="authorityLink" href="./analytics.html">Admin Dashboard</a>
+      </aside>
+
+      <section class="main-area">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow" id="viewEyebrow">Citizen Health Companion</p>
+            <h1 id="viewTitle">How can we help you today?</h1>
+          </div>
+          <div class="top-actions">
+            <label class="region-control">
+              <span id="regionLabel">Region</span>
+              <select id="regionSelect" aria-label="Select region">
+                <option value="Statewide">Statewide</option>
+                <option value="North District">North District</option>
+                <option value="Central District">Central District</option>
+                <option value="Coastal District">Coastal District</option>
+                <option value="Rural Block">Rural Block</option>
+              </select>
+            </label>
+            <div class="language-switch" role="group" aria-label="Language">
+              <button class="language-btn active" data-language="en" type="button">EN</button>
+              <button class="language-btn" data-language="hi" type="button">हिन्दी</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="content-frame">
+          <section class="view active" id="view-home" data-view="home" aria-label="Home"></section>
+          <section class="view" id="view-chat" data-view="chat" aria-label="Ask AI"></section>
+          <section class="view" id="view-symptoms" data-view="symptoms" aria-label="Symptoms"></section>
+          <section class="view" id="view-diseases" data-view="diseases" aria-label="Disease awareness"></section>
+          <section class="view" id="view-vaccination" data-view="vaccination" aria-label="Vaccination"></section>
+          <section class="view" id="view-prevention" data-view="prevention" aria-label="Prevention"></section>
+          <section class="view" id="view-alerts" data-view="alerts" aria-label="Health alerts"></section>
+          <section class="view" id="view-coming-soon" data-view="coming-soon" aria-label="Coming soon"></section>
+          <section class="view" id="view-settings" data-view="settings" aria-label="Settings"></section>
+        </div>
+      </section>
+
+      <button class="floating-ask" id="floatingAsk" type="button">Ask AI</button>
+      <nav class="bottom-nav" id="mobileNav" aria-label="Mobile navigation"></nav>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/deployment.js"></script>
+  </body>
+</html>

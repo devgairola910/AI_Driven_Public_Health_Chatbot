@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Swasthya Saathi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#176f65" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <p class="eyebrow">Demo Data · Admin Dashboard</p>
+          <h1>Public Health Overview</h1>
+          <p>
+            Aggregated awareness signals from chatbot usage. No raw citizen messages are stored.
+          </p>
+        </div>
+        <div class="chat-actions">
+          <a class="admin-link compact" href="./index.html">Open App</a>
+          <a class="admin-link compact" href="./admin.html">Content Review</a>
+          <a class="admin-link compact" href="./deployment.html">Deployment</a>
+          <button class="admin-link button-link" id="refreshAnalytics" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <section class="admin-metrics admin-metrics-wide" aria-label="Public health overview metrics">
+        <article>
+          <span id="metricQueries">1,248</span>
+          <p>Queries Today</p>
+        </article>
+        <article>
+          <span id="metricFever">324</span>
+          <p>Fever Queries</p>
+        </article>
+        <article>
+          <span id="metricCough">187</span>
+          <p>Cough Queries</p>
+        </article>
+        <article>
+          <span id="metricSignals">3</span>
+          <p>Awareness Signals</p>
+        </article>
+      </section>
+
+      <section class="intelligence-grid">
+        <article class="review-panel">
+          <div class="section-heading">
+            <h2>Query Trends</h2>
+          </div>
+          <div class="chart-panel" id="queryTrendChart" aria-label="Query trends line chart"></div>
+        </article>
+
+        <article class="review-panel">
+          <div class="section-heading">
+            <h2>Trending Symptoms</h2>
+          </div>
+          <div class="bar-list" id="symptomTrends"></div>
+        </article>
+      </section>
+
+      <section class="intelligence-grid">
+        <article class="review-panel">
+          <div class="section-heading">
+            <h2>Regional Activity</h2>
+          </div>
+          <div class="region-grid" id="regionActivity"></div>
+        </article>
+
+        <article class="review-panel">
+          <div class="section-heading">
+            <h2>Active Awareness Signals</h2>
+          </div>
+          <div class="signal-list" id="activeSignals"></div>
+        </article>
+      </section>
+
+      <section class="privacy-panel">
+        <h2>Privacy Guardrails</h2>
+        <p id="privacySummary">
+          The dashboard stores aggregate counts only and does not store raw health questions.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="./src/analytics.js"></script>
+    <script type="module" src="./src/deployment.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "public-health-chatbot-sih",
+  "version": "0.2.0",
+  "description": "AI-driven public health chatbot for disease awareness, delivered in SIH project phases.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check src/main.js && node --check src/admin.js && node --check src/analytics.js && node --check src/readiness.js && node --check src/deployment.js && node --check src/knowledgeBase.js"
+  },
+  "private": true
+}
