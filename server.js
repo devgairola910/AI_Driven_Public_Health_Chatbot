@@ -444,7 +444,8 @@ async function serveStatic(request, response, url) {
 }
 
 async function handleRequest(request, response) {
-  const url = new URL(request.url || "/", `http://${request.headers.host || "localhost"}`);
+  const headers = request.headers || {};
+  const url = new URL(request.url || "/", `http://${headers.host || "localhost"}`);
 
   if (url.pathname.startsWith("/api/") && (await handleApi(request, response, url))) {
     return;
@@ -457,7 +458,9 @@ export default async function handler(request, response) {
   await handleRequest(request, response);
 }
 
-if (!process.env.VERCEL) {
+const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+
+if (!process.env.VERCEL && isDirectRun) {
   const server = createServer(async (request, response) => {
     await handleRequest(request, response);
   });
