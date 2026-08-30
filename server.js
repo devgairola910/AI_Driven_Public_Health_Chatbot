@@ -435,7 +435,7 @@ async function serveStatic(request, response, url) {
   }
 }
 
-const server = createServer(async (request, response) => {
+async function handleRequest(request, response) {
   const url = new URL(request.url || "/", `http://${request.headers.host || "localhost"}`);
 
   if (url.pathname.startsWith("/api/") && (await handleApi(request, response, url))) {
@@ -443,8 +443,18 @@ const server = createServer(async (request, response) => {
   }
 
   await serveStatic(request, response, url);
-});
+}
 
-server.listen(port, () => {
-  console.log(`Public health chatbot server running at http://localhost:${port}`);
-});
+export async function handler(request, response) {
+  await handleRequest(request, response);
+}
+
+if (!process.env.VERCEL) {
+  const server = createServer(async (request, response) => {
+    await handleRequest(request, response);
+  });
+
+  server.listen(port, () => {
+    console.log(`Public health chatbot server running at http://localhost:${port}`);
+  });
+}
