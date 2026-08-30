@@ -283,26 +283,34 @@ async function readBody(request) {
   return Buffer.concat(chunks).toString("utf8");
 }
 
+function writeResponseHeaders(response, status, headers) {
+  const allHeaders = securityHeaders(headers);
+
+  if (typeof response.writeHead === "function") {
+    response.writeHead(status, allHeaders);
+    return;
+  }
+
+  response.statusCode = status;
+  Object.entries(allHeaders).forEach(([key, value]) => {
+    response.setHeader(key, value);
+  });
+}
+
 function sendJson(response, status, payload) {
-  response.writeHead(
-    status,
-    securityHeaders({
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store"
-    })
-  );
+  writeResponseHeaders(response, status, {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store"
+  });
   response.end(JSON.stringify(payload, null, 2));
 }
 
 function sendText(response, status, text, filename) {
-  response.writeHead(
-    status,
-    securityHeaders({
-      "Content-Type": "text/plain; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${filename}"`,
-      "Cache-Control": "no-store"
-    })
-  );
+  writeResponseHeaders(response, status, {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Content-Disposition": `attachment; filename="${filename}"`,
+    "Cache-Control": "no-store"
+  });
   response.end(text);
 }
 
@@ -445,7 +453,7 @@ async function handleRequest(request, response) {
   await serveStatic(request, response, url);
 }
 
-export async function handler(request, response) {
+export default async function handler(request, response) {
   await handleRequest(request, response);
 }
 
